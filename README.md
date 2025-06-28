@@ -92,5 +92,5 @@ A Chemotherapy Ward Management System (Patient & Appointment Management)
 
 ---
 
-> Created and maintained by by URAREE, M.D. Aspiring programmer in the AI era  
+> Created and maintained by URAREE, M.D. Aspiring programmer in the AI era  
 copyright © 2025
