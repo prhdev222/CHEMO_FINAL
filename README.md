@@ -92,4 +92,5 @@ A Chemotherapy Ward Management System (Patient & Appointment Management)
 
 ---
 
-> พัฒนาโดยทีมงานโรงพยาบาลสงฆ์ (ตัวอย่าง) 
+> Created and maintained by by URAREE, M.D. Aspiring programmer in the AI era  
+copyright © 2025
