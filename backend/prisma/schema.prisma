@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  DOCTOR
+  NURSE
+}
+
+enum PatientStatus {
+  ACTIVE
+  INACTIVE
+  DECEASED
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Patient {
+  id            Int      @id @default(autoincrement())
+  hn            String   @unique
+  firstName     String
+  lastName      String
+  phone         String?
+  lineId        String?
+  address       String?
+  birthDate     DateTime
+  diagnosis     String?
+  diagnosisDate DateTime?
+  stage         String?
+  prognosis     String?
+  attachments   Json?    // Array of { name: string, path: string }
+  treatmentPlan Json
+  followUp      Json?
+  progression   Json?
+  palliative    Json?
+  deathDate     DateTime?
+  deathCause    String?
+  status        PatientStatus @default(ACTIVE)
+  isDeleted     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  appointments  Appointment[]
+  treatmentRight String?
+}
+
+model Appointment {
+  id            Int      @id @default(autoincrement())
+  patientId     Int
+  date          DateTime
+  chemoRegimen  String
+  admitStatus   String   // waiting, admit, discharged, missed, rescheduled, cancelled, followup
+  admitDate     DateTime?
+  dischargeDate DateTime?
+  referHospital String?
+  referDate     DateTime?
+  note          String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  patient       Patient  @relation(fields: [patientId], references: [id])
+  reschedules   RescheduleHistory[]
+  isDeleted     Boolean  @default(false)
+}
+
+model RescheduleHistory {
+  id            Int      @id @default(autoincrement())
+  appointmentId Int
+  action        String   // 'reschedule' หรือ 'cancel'
+  date          DateTime // วันที่ดำเนินการ
+  newDate       DateTime? // วันที่นัดใหม่ (ถ้าเลื่อน)
+  note          String?  // หมายเหตุ
+  createdBy     String?  // (option) ผู้ดำเนินการ
+  createdAt     DateTime @default(now())
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+}
+
+model ExternalLink {
+  id        Int      @id @default(autoincrement())
+  title     String
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+} 

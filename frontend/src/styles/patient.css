@@ -1,0 +1,78 @@
+/* ================= PATIENT MANAGEMENT ================= */
+.patient-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.patient-table th, .patient-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+.patient-table th {
+  background-color: #f8f9fa;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  border-radius: 12px;
+  font-size: 0.9em;
+  color: #fff;
+  font-weight: 500;
+}
+.status-active { background: #10B981; color: #fff; }
+.status-inactive { background: #6c757d; color: #fff; }
+.status-deceased { background: #343a40; color: #fff; }
+
+/* ฟอร์มผู้ป่วย */
+.patient-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+.patient-form .form-full-width {
+  grid-column: 1 / -1;
+}
+.patient-form textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.btn-edit {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.95rem;
+}
+.btn-edit:hover {
+  background: #0056b3;
+}
+.btn-delete {
+  background: #EF4444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.95rem;
+}
+.btn-delete:hover {
+  background: #991B1B;
+} 

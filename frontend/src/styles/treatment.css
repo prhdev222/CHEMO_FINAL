@@ -1,0 +1,167 @@
+/* ===== กล่องแผนการรักษา (Treatment Plan Box) สำหรับหน้า TreatmentPage ===== */
+.treatment-plan-box {
+  background: #f4f8fb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41,128,185,0.08);
+  padding: 1.2rem 1rem;
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1rem;
+  color: #234;
+  max-height: 260px;
+  overflow-y: auto;      /* scroll แนวตั้ง */
+  overflow-x: hidden;    /* ไม่ให้ scroll แนวนอน */
+  white-space: pre-line;
+  line-height: 1.7;
+  transition: box-shadow 0.2s;
+}
+.treatment-plan-box:focus-within, .treatment-plan-box:hover {
+  box-shadow: 0 6px 24px rgba(41,128,185,0.15);
+  background: #eaf3fa;
+}
+
+/* ===== Modal เต็มจอสำหรับอ่าน/แก้ไขแผนการรักษา ===== */
+.fullscreen-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fullscreen-modal-content {
+  background: #fff;
+  width: 90vw;
+  height: 90vh;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  overflow-y: auto;
+  font-size: 1.25rem;
+  line-height: 2;
+  color: #222;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  z-index: 10;
+}
+.treatment-full-content {
+  white-space: pre-line;
+  font-family: inherit;
+  margin-top: 2rem;
+  background: #f4f8fb;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  max-height: 65vh;
+  overflow-y: auto;
+  font-size: 1.15rem;
+  color: #234;
+}
+.treatment-full-textarea {
+  background: #f4f8fb;
+  border-radius: 12px;
+  border: 1.5px solid #b5d0ea;
+  font-size: 1.15rem;
+  color: #234;
+  line-height: 1.7;
+  resize: vertical;
+  width: 100%;
+  min-height: 65vh;
+  margin-top: 2rem;
+  padding: 2rem 1.5rem;
+}
+
+/* Label สีเข้ม */
+.treatment-form label {
+  color: #222;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* ช่องกรอก input/select/textarea สีอ่อนลง */
+.treatment-form input,
+.treatment-form select,
+.treatment-form textarea {
+  color: #444;
+  font-weight: 400;
+  border: 1.5px solid #bfc9d1;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 1rem;
+  padding: 0.7rem 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  transition: border 0.2s;
+}
+.treatment-form input:focus,
+.treatment-form select:focus,
+.treatment-form textarea:focus {
+  border: 2px solid var(--primary-color, #0075FF);
+  outline: none;
+}
+
+/* ปุ่มโค้งมน มีขอบหนา */
+.treatment-form button,
+.treatment-form .btn-primary,
+.treatment-form .btn-secondary,
+.treatment-form .btn-danger,
+.treatment-form .btn-link {
+  border-radius: 8px;
+  border: 2px solid var(--primary-color, #0075FF);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  margin: 0.2rem 0.5rem 0.2rem 0;
+  background: #fff;
+  color: var(--primary-color, #0075FF);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.treatment-form .btn-primary {
+  background: var(--primary-color, #0075FF);
+  color: #fff;
+  border: 2px solid var(--primary-color, #0075FF);
+}
+.treatment-form .btn-primary:hover {
+  background: #005bb5;
+  border-color: #005bb5;
+}
+.treatment-form .btn-secondary {
+  background: #f3f4f6;
+  color: #222;
+  border: 2px solid #bfc9d1;
+}
+.treatment-form .btn-secondary:hover {
+  background: #e5e7eb;
+}
+.treatment-form .btn-danger {
+  background: #fff0f0;
+  color: #b91c1c;
+  border: 2px solid #b91c1c;
+}
+.treatment-form .btn-danger:hover {
+  background: #fee2e2;
+  color: #fff;
+  border-color: #b91c1c;
+}
+.treatment-form .btn-link {
+  background: none;
+  color: var(--primary-color, #0075FF);
+  border: none;
+  text-decoration: underline;
+  padding: 0.5rem 0.7rem;
+}
+.treatment-form .btn-link:hover {
+  color: #005bb5;
+  background: #f0f6ff;
+} 
